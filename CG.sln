@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTransform", "CG\MatrixTransform.csproj", "{AA6F1217-3F2B-4734-B335-6B4E2653655A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTransform", "MatrixTransformation\MatrixTransform.csproj", "{AA6F1217-3F2B-4734-B335-6B4E2653655A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

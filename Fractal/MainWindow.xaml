@@ -1,0 +1,58 @@
+﻿<Window x:Class="Fractal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fractal"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Closing="DataWindow_Closing" 
+        Title="MainWindow" Height="613" Width="1046">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="749*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="m_picture" VerticalAlignment="Top" Height="519" Stretch="Fill" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="1046"/>
+        <ToolBarPanel Margin="0,428,0,0" Grid.ColumnSpan="2" Background="DarkGray">
+            <WrapPanel Width="878">
+                <StackPanel>
+                    <WrapPanel Margin="10,0,0,0">
+                        <Label Content="Re" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="51" FontSize="20" Foreground="#FF463E3E"/>
+                        <Slider x:Name="m_re" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" HorizontalAlignment="Left" Width="209" ValueChanged="m_re_ValueChanged" Height="18" VerticalAlignment="Bottom" Minimum="-3" Maximum="3" SmallChange="0.01" Grid.Column="1" Foreground="#FFF9F9F9"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Im" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="37" VerticalAlignment="Center" Width="51" FontSize="20" Foreground="#FF463E3E" Margin="10,0,0,0"/>
+                        <Slider x:Name="m_im" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" HorizontalAlignment="Left" Width="209" ValueChanged="m_im_ValueChanged" Height="18" VerticalAlignment="Bottom" Minimum="-3" Maximum="3" SmallChange="0.01" Grid.Column="1" Foreground="#FFF9F9F9"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Shift x" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35" VerticalAlignment="Center" Width="69" FontSize="20" Foreground="#FF4D4848"/>
+                        <Slider x:Name="m_shiftXSlider" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" HorizontalAlignment="Left" Width="209" Height="18" VerticalAlignment="Bottom" Minimum="-10" SmallChange="0.003" Grid.Column="1" ValueChanged="m_shiftX_ValueChanged" TickFrequency="0.003" TickPlacement="None" IsDirectionReversed="True" Foreground="#FFF9F9F9"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Shift y" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35" VerticalAlignment="Center" Width="69" FontSize="20" Foreground="#FF4D4848"/>
+                        <Slider x:Name="m_shiftYSlider" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" HorizontalAlignment="Left" Width="209" Height="18" VerticalAlignment="Bottom" Minimum="-10" SmallChange="0.003" Grid.Column="1" ValueChanged="m_shiftY_ValueChanged" TickFrequency="0.003" IsDirectionReversed="True" Foreground="#FFF9F9F9"/>
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Iterations" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="35" Width="129" FontSize="20" Foreground="#FF403838"/>
+                    <TextBox x:Name="m_iterationsTextBox" Text="255" Width="121" Height="29" FontSize="20" TextChanged="m_iterationsTextBox_TextChanged" Margin="0,0,0,10"/>
+                    <Label Content="Worker step" Height="35" Width="129" FontSize="20" Foreground="#FF403838"/>
+                    <TextBox x:Name="m_workerStepTextBox" Text="0,08" Width="121" Height="29" FontSize="20" TextChanged="m_workerStepTextBox_TextChanged"/>
+
+                </StackPanel>
+
+                <StackPanel Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,15,0,0">
+                    <Button x:Name="m_drawButton" Content="Draw" Click="m_drawButton_Click" Height="20" Grid.Column="1" Width="170" HorizontalAlignment="Center" Margin="0,0,0,5" />
+                    <Button x:Name="m_resetButton" Content="Reset" Height="20" Grid.Column="1" Click="m_resetButton_Click" HorizontalAlignment="Center" Width="168" Margin="0,0,0,30"/>
+
+                    <Button x:Name="m_startButton" Content="Start" Height="20" Width="170" Click="m_startButton_Click" Margin="0,0,0,5" />
+                    <Button x:Name="m_stopButton" Content="Stop" Height="20" Width="170" Click="m_stopButton_Click" />
+                </StackPanel>
+
+            </WrapPanel>
+        </ToolBarPanel>
+
+    </Grid>
+</Window>

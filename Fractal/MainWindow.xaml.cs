@@ -21,9 +21,6 @@ using Color = System.Drawing.Color;
 
 namespace Fractal
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private Bitmap m_bitmap;

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTransform", "MatrixTr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fractal", "Fractal\Fractal.csproj", "{E5DD6AEA-1A11-4855-807B-43047D8D759D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL", "OpenGL\OpenGL.csproj", "{004899F6-BF25-46BF-8310-95567DF5D0CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E5DD6AEA-1A11-4855-807B-43047D8D759D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5DD6AEA-1A11-4855-807B-43047D8D759D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5DD6AEA-1A11-4855-807B-43047D8D759D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004899F6-BF25-46BF-8310-95567DF5D0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004899F6-BF25-46BF-8310-95567DF5D0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004899F6-BF25-46BF-8310-95567DF5D0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004899F6-BF25-46BF-8310-95567DF5D0CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -57,10 +57,7 @@ namespace OpenGL
             Gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT);
         }
-
-        private void DrawTriangle(int mode)
-        {
-        }
+        
 
         private float ToCoordPoints(float points)
         {

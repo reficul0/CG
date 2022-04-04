@@ -84,9 +84,9 @@ namespace OpenGL
 
             if (isAutoRotate)
             {
-                mAngleX = (mAngleX - 3) % 360;
-                mAngleY = (mAngleY + 3) % 360;
-                mAngleZ = (mAngleZ - 3) % 360;
+                mAngleX = (mAngleX + 1) % 360;
+                mAngleY = (mAngleY + 1) % 360;
+                mAngleZ = (mAngleZ+1) % 360;
             }
             DrawFigure();
         }
@@ -115,16 +115,16 @@ namespace OpenGL
             mHolst.Invalidate();
         }
 
-        private void DrawTrap(bool customColor)
+        private void DrawTrap(bool isLines)
         {
-            if (!customColor)
+            if (!isLines)
                 Gl.glColor3f(0, 1.5f, 1.5f);
 
             Gl.glBegin(Gl.GL_QUADS);
             {
                 // front
                 {
-                    if (customColor)
+                    if (isLines)
                         Gl.glColor3f(0.5f, 0, 0);
                     Gl.glVertex3f(0.5f, 0.5f, 0.5f);
                     Gl.glVertex3f(-0.5f, 0.5f, 0.5f);
@@ -133,7 +133,7 @@ namespace OpenGL
                 }
                 // back
                 {
-                    if (customColor)
+                    if (isLines)
                         Gl.glColor3f(0, 0.5f, 0);
                     Gl.glVertex3f(0.5f, 0.5f, 0.5f);
                     Gl.glVertex3f(-0f, 0.5f, -0.5f);
@@ -142,7 +142,7 @@ namespace OpenGL
                 }
                 // right
                 {
-                    if (customColor)
+                    if (isLines)
                         Gl.glColor3f(0.5f, 0.5f, 0);
                     Gl.glVertex3f(-0.5f, 0.5f, 0.5f);
                     Gl.glVertex3f(-1, -1, 1);
@@ -156,7 +156,7 @@ namespace OpenGL
             {
                 // top
                 {
-                    if (customColor)
+                    if (isLines)
                         Gl.glColor3f(0.5f, 0.5f, 0.5f);
                     Gl.glVertex3f(-0.5f, 0.5f, 0.5f);
                     Gl.glVertex3f(0.5f, 0.5f, 0.5f);
@@ -166,7 +166,7 @@ namespace OpenGL
                 Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
                 // bottom
                 {
-                    if (customColor)
+                    if (isLines)
                         Gl.glColor3f(0.5f, 0.5f, 0.5f);
                     Gl.glVertex3f(-1, -1, 1);
                     Gl.glVertex3f(1, -1, 1);
@@ -176,15 +176,15 @@ namespace OpenGL
             Gl.glEnd();
         }
 
-        private void DrawQuads(bool customColor)
+        private void DrawQuads(bool isLines)
         {
-            if (!customColor)
+            if (!isLines)
                 Gl.glColor3f(0, 1.5f, 1.5f);
 
             Gl.glBegin(Gl.GL_QUADS);
             // front
             {
-                if (customColor)
+                if (isLines)
                     Gl.glColor3f(0.5f, 0, 0);
                 Gl.glVertex3f(1, 1, 1);
                 Gl.glVertex3f(-1, 1, 1);
@@ -193,7 +193,7 @@ namespace OpenGL
             }
             // back
             {
-                if (customColor)
+                if (isLines)
                     Gl.glColor3f(0, 0.5f, 0);
                 Gl.glVertex3f(1, 1, -1);
                 Gl.glVertex3f(-1, 1, -1);
@@ -202,7 +202,7 @@ namespace OpenGL
             }
             // right
             {
-                if (customColor)
+                if (isLines)
                     Gl.glColor3f(0.5f, 0.5f, 0);
                 Gl.glVertex3f(1, 1, 1);
                 Gl.glVertex3f(1, 1, -1);
@@ -211,7 +211,7 @@ namespace OpenGL
             }
             // left
             {
-                if (customColor)
+                if (isLines)
                     Gl.glColor3f(0, 0.5f, 0.5f);
                 Gl.glVertex3f(-1, 1, 1);
                 Gl.glVertex3f(-1, 1, -1);
@@ -220,7 +220,7 @@ namespace OpenGL
             }
             // top
             {
-                if (customColor)
+                if (isLines)
                     Gl.glColor3f(0.5f, 0.5f, 0.5f);
                 Gl.glVertex3f(1, 1, 1);
                 Gl.glVertex3f(1, 1, -1);
@@ -229,7 +229,7 @@ namespace OpenGL
             }
             // bottom
             {
-                if (customColor)
+                if (isLines)
                     Gl.glColor3f(0.5f, 0.5f, 0.5f);
                 Gl.glVertex3f(1, -1, 1);
                 Gl.glVertex3f(1, -1, -1);
@@ -239,71 +239,95 @@ namespace OpenGL
             Gl.glEnd();
         }
 
-        private void DrawFigures(bool customColor)
+        private void DrawFigures(bool isLines)
         {
-            if (!customColor)
+            if (!isLines)
                 Gl.glColor3f(0, 1.5f, 1.5f);
 
-            Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
+            // Piramida
             {
-                // front
+                Gl.glBegin(Gl.GL_TRIANGLE_FAN);
                 {
-                   if (customColor)
-                       Gl.glColor3f(0.5f, 0, 0);
-                   Gl.glVertex3f(0f, 2f, 0f);
-                   Gl.glVertex3f(-1, -1, 1);
-                   Gl.glVertex3f(1, -1, 1);
-                }
-                // right
-                {
-                    if (customColor)
-                       Gl.glColor3f(0, 0.5f, 0);
-                   Gl.glVertex3f(0f, 2f, 0f);
-                   Gl.glVertex3f(1, -1, -1);
-                   Gl.glVertex3f(1, -1, 1);
-               }
-                // left
-                {
-                    if (customColor)
-                        Gl.glColor3f(0.5f, 0.5f, 0);
-                    Gl.glVertex3f(0f, 2f, 0f);
-                    Gl.glVertex3f(-1, -1, 1);
-                    Gl.glVertex3f(-1, -1, -1);
-                }
+                    {
+                        if (isLines)
+                            Gl.glColor3f(0.2f, 0.5f, 0.5f);
+                        Gl.glVertex3f(0.3f, 1.6f, 0.2f);
 
-                // back left
-                {
-                    if (customColor)
-                        Gl.glColor3f(0.5f, 0.5f, 0.5f);
-                    Gl.glVertex3f(0f, 2f, 0f);
-                    Gl.glVertex3f(-1, -1, -1);
-                    Gl.glVertex3f(1, -1, -1);
+                        Gl.glVertex3f(-0f, -1f, 1.5f);
+                        Gl.glVertex3f(1, -1, 1);
+
+                        if (isLines)
+                            Gl.glColor3f(0, 0.3f, 0.5f);
+                        Gl.glVertex3f(1.3f, -1f, -0.2f);
+
+                        if (isLines)
+                            Gl.glColor3f(0f, 0.2f, 0.1f);
+                        Gl.glVertex3f(0.5f, -1f, -1f);
+
+                        if (isLines)
+                            Gl.glColor3f(0.4f, 0.5f, 0);
+                        Gl.glVertex3f(-0.7f, -1f, -0.5f);
+
+
+                        if (isLines)
+                            Gl.glColor3f(0, 0.9f, 0.2f);
+                        Gl.glVertex3f(-1.2f, -1f, 0.5f);
+
+                        if (isLines)
+                            Gl.glColor3f(0, 0.6f, 0.5f);
+                        Gl.glVertex3f(-0f, -1f, 1.5f);
+                    }
                 }
+                Gl.glEnd();
+
+
+                Gl.glBegin(Gl.GL_POLYGON);
+                {
+                    if (isLines)
+                        Gl.glColor3f(0.2f, 0.5f, 0.5f);
+
+                    Gl.glVertex3f(-0f, -1f, 1.5f);
+                    Gl.glVertex3f(1, -1, 1);
+
+                    if (isLines)
+                        Gl.glColor3f(0, 0.3f, 0.5f);
+                    Gl.glVertex3f(1.3f, -1f, -0.2f);
+
+                    if (isLines)
+                        Gl.glColor3f(0f, 0.2f, 0.1f);
+                    Gl.glVertex3f(0.5f, -1f, -1f);
+
+                    if (isLines)
+                        Gl.glColor3f(0.4f, 0.5f, 0);
+                    Gl.glVertex3f(-0.7f, -1f, -0.5f);
+
+
+                    if (isLines)
+                        Gl.glColor3f(0, 0.9f, 0.2f);
+                    Gl.glVertex3f(-1.2f, -1f, 0.5f);
+
+                    if (isLines)
+                        Gl.glColor3f(0, 0.6f, 0.5f);
+                    Gl.glVertex3f(-0f, -1f, 1.5f);
+                }
+                Gl.glEnd(); 
             }
-            Gl.glEnd();
+            
+            Gl.glPushMatrix();
 
-           // Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
-           //{
-           //    // top
-           //    {
-           //        if (customColor)
-           //            Gl.glColor3f(0.5f, 0.5f, 0.5f);
-           //        Gl.glVertex3f(-0.5f, 0.5f, 0.5f);
-           //        Gl.glVertex3f(0.5f, 0.5f, 0.5f);
-           //        Gl.glVertex3f(-0f, 0.5f, -0.5f);
-           //    }
-           //    Gl.glEnd();
-           //    Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
-           //    // bottom
-           //    {
-           //        if (customColor)
-           //            Gl.glColor3f(0.5f, 0.5f, 0.5f);
-           //        Gl.glVertex3f(-1, -1, 1);
-           //        Gl.glVertex3f(1, -1, 1);
-           //        Gl.glVertex3f(0, -1, -1);
-           //    }
-           //}
-           //Gl.glEnd();
+            if (isAutoRotate)
+            {
+                Gl.glRotatef(-mAngleY, 1, 0, 0);
+                Gl.glRotatef(-mAngleY, 0, 1, 0);
+                Gl.glRotatef(-mAngleZ, 0, 0, 1);
+            }
+
+            Gl.glTranslated(0, 0 ,0);
+            Gl.glColor3d(0, 0.8f, 0.5f);
+            Glut.glutWireCube(3);
+
+            Gl.glPopMatrix();
+
         }
 
         private void mHolst_MouseEnter(object sender, EventArgs e)
@@ -313,7 +337,7 @@ namespace OpenGL
 
         private void mHolst_MouseLeave(object sender, EventArgs e)
         {
-            //isAutoRotate = true;
+            isAutoRotate = true;
         }
 
         private void quadratToolStripMenuItem_Click(object sender, EventArgs e)

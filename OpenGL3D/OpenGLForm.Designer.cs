@@ -33,6 +33,10 @@ namespace OpenGL
             this.mHolst = new Tao.Platform.Windows.SimpleOpenGlControl();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.quadratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trapeciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mHolst
@@ -47,6 +51,7 @@ namespace OpenGL
             this.mHolst.AutoSwapBuffers = true;
             this.mHolst.BackColor = System.Drawing.Color.Black;
             this.mHolst.ColorBits = ((byte)(32));
+            this.mHolst.ContextMenuStrip = this.contextMenuStrip1;
             this.mHolst.DepthBits = ((byte)(16));
             this.mHolst.Location = new System.Drawing.Point(-1, -2);
             this.mHolst.Name = "mHolst";
@@ -67,7 +72,30 @@ namespace OpenGL
             // timer
             // 
             this.timer.Enabled = true;
+            this.timer.Interval = 50;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quadratToolStripMenuItem,
+            this.trapeciaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 48);
+            // 
+            // quadratToolStripMenuItem
+            // 
+            this.quadratToolStripMenuItem.Name = "quadratToolStripMenuItem";
+            this.quadratToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quadratToolStripMenuItem.Text = "Quadrat";
+            this.quadratToolStripMenuItem.Click += new System.EventHandler(this.quadratToolStripMenuItem_Click);
+            // 
+            // trapeciaToolStripMenuItem
+            // 
+            this.trapeciaToolStripMenuItem.Name = "trapeciaToolStripMenuItem";
+            this.trapeciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trapeciaToolStripMenuItem.Text = "Trapecia";
+            this.trapeciaToolStripMenuItem.Click += new System.EventHandler(this.trapeciaToolStripMenuItem_Click);
             // 
             // OpenGLForm
             // 
@@ -77,6 +105,7 @@ namespace OpenGL
             this.Controls.Add(this.mHolst);
             this.Name = "OpenGLForm";
             this.Text = "OpenGLForm";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -86,6 +115,9 @@ namespace OpenGL
         private Tao.Platform.Windows.SimpleOpenGlControl mHolst;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem quadratToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trapeciaToolStripMenuItem;
     }
 }
 

@@ -31,11 +31,12 @@ namespace OpenGL
         {
             this.components = new System.ComponentModel.Container();
             this.mHolst = new Tao.Platform.Windows.SimpleOpenGlControl();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quadratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trapeciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.figuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,26 +63,14 @@ namespace OpenGL
             this.mHolst.MouseEnter += new System.EventHandler(this.mHolst_MouseEnter);
             this.mHolst.MouseLeave += new System.EventHandler(this.mHolst_MouseLeave);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Interval = 50;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quadratToolStripMenuItem,
-            this.trapeciaToolStripMenuItem});
+            this.trapeciaToolStripMenuItem,
+            this.figuresToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // quadratToolStripMenuItem
             // 
@@ -96,6 +85,26 @@ namespace OpenGL
             this.trapeciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trapeciaToolStripMenuItem.Text = "Trapecia";
             this.trapeciaToolStripMenuItem.Click += new System.EventHandler(this.trapeciaToolStripMenuItem_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 50;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // figuresToolStripMenuItem
+            // 
+            this.figuresToolStripMenuItem.Name = "figuresToolStripMenuItem";
+            this.figuresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.figuresToolStripMenuItem.Text = "2 figures";
+            this.figuresToolStripMenuItem.Click += new System.EventHandler(this.figuresToolStripMenuItem_Click);
             // 
             // OpenGLForm
             // 
@@ -118,6 +127,7 @@ namespace OpenGL
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quadratToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trapeciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem figuresToolStripMenuItem;
     }
 }
 

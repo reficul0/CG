@@ -29,7 +29,8 @@ namespace OpenGL
         {
             InitializeComponent();
             mHolst.InitializeContexts();
-            mFigureDrawingFuc = DrawTrap;
+            Glut.glutInit();
+            mFigureDrawingFuc = DrawFigures;
         }
 
         private void Clear()
@@ -113,6 +114,7 @@ namespace OpenGL
 
             mHolst.Invalidate();
         }
+
         private void DrawTrap(bool customColor)
         {
             if (!customColor)
@@ -173,6 +175,7 @@ namespace OpenGL
             }
             Gl.glEnd();
         }
+
         private void DrawQuads(bool customColor)
         {
             if (!customColor)
@@ -236,6 +239,73 @@ namespace OpenGL
             Gl.glEnd();
         }
 
+        private void DrawFigures(bool customColor)
+        {
+            if (!customColor)
+                Gl.glColor3f(0, 1.5f, 1.5f);
+
+            Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
+            {
+                // front
+                {
+                   if (customColor)
+                       Gl.glColor3f(0.5f, 0, 0);
+                   Gl.glVertex3f(0f, 2f, 0f);
+                   Gl.glVertex3f(-1, -1, 1);
+                   Gl.glVertex3f(1, -1, 1);
+                }
+                // right
+                {
+                    if (customColor)
+                       Gl.glColor3f(0, 0.5f, 0);
+                   Gl.glVertex3f(0f, 2f, 0f);
+                   Gl.glVertex3f(1, -1, -1);
+                   Gl.glVertex3f(1, -1, 1);
+               }
+                // left
+                {
+                    if (customColor)
+                        Gl.glColor3f(0.5f, 0.5f, 0);
+                    Gl.glVertex3f(0f, 2f, 0f);
+                    Gl.glVertex3f(-1, -1, 1);
+                    Gl.glVertex3f(-1, -1, -1);
+                }
+
+                // back left
+                {
+                    if (customColor)
+                        Gl.glColor3f(0.5f, 0.5f, 0.5f);
+                    Gl.glVertex3f(0f, 2f, 0f);
+                    Gl.glVertex3f(-1, -1, -1);
+                    Gl.glVertex3f(1, -1, -1);
+                }
+            }
+            Gl.glEnd();
+
+           // Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
+           //{
+           //    // top
+           //    {
+           //        if (customColor)
+           //            Gl.glColor3f(0.5f, 0.5f, 0.5f);
+           //        Gl.glVertex3f(-0.5f, 0.5f, 0.5f);
+           //        Gl.glVertex3f(0.5f, 0.5f, 0.5f);
+           //        Gl.glVertex3f(-0f, 0.5f, -0.5f);
+           //    }
+           //    Gl.glEnd();
+           //    Gl.glBegin(Gl.GL_TRIANGLE_STRIP);
+           //    // bottom
+           //    {
+           //        if (customColor)
+           //            Gl.glColor3f(0.5f, 0.5f, 0.5f);
+           //        Gl.glVertex3f(-1, -1, 1);
+           //        Gl.glVertex3f(1, -1, 1);
+           //        Gl.glVertex3f(0, -1, -1);
+           //    }
+           //}
+           //Gl.glEnd();
+        }
+
         private void mHolst_MouseEnter(object sender, EventArgs e)
         {
             isAutoRotate = false;
@@ -243,7 +313,7 @@ namespace OpenGL
 
         private void mHolst_MouseLeave(object sender, EventArgs e)
         {
-            isAutoRotate = true;
+            //isAutoRotate = true;
         }
 
         private void quadratToolStripMenuItem_Click(object sender, EventArgs e)
@@ -254,6 +324,11 @@ namespace OpenGL
         private void trapeciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mFigureDrawingFuc = DrawTrap;
+        }
+
+        private void figuresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mFigureDrawingFuc = DrawFigures;
         }
     }
 }

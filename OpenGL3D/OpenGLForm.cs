@@ -36,9 +36,22 @@ namespace OpenGL
         private void Clear()
         {
             Gl.glViewport(0, 0, mHolst.Width, mHolst.Height);
-            Gl.glClearColor(0, 0.5f, 0.3f, 1);
+            Gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
             Gl.glEnable(Gl.GL_DEPTH_TEST);
+
+            float[] flogColor = { 0.5f, 0.5f, 0.5f, 1f };
+
+            Gl.glTranslatef(3.5f, 0.2f, 0f);
+            Gl.glEnable(Gl.GL_FOG);
+            Gl.glFogi(Gl.GL_FOG_MODE, Gl.GL_EXP2);
+            Gl.glFogfv(Gl.GL_FOG_COLOR, flogColor);
+            Gl.glFogf(Gl.GL_FOG_DENSITY, 0.4f);
+            Gl.glFogf(Gl.GL_FOG_START, -1000f);
+            Gl.glFogf(Gl.GL_FOG_END, -500f);
+
+            Gl.glTranslatef(0f, 0f, 0f);
+
             Gl.glEnable(Gl.GL_POINT_SMOOTH);
             Gl.glEnable(Gl.GL_LINE_SMOOTH);
         }
@@ -86,7 +99,7 @@ namespace OpenGL
             {
                 mAngleX = (mAngleX + 1) % 360;
                 mAngleY = (mAngleY + 1) % 360;
-                mAngleZ = (mAngleZ+1) % 360;
+                mAngleZ = (mAngleZ + 1) % 360;
             }
             DrawFigure();
         }
@@ -322,7 +335,6 @@ namespace OpenGL
                 Gl.glRotatef(-mAngleZ, 0, 0, 1);
             }
 
-            Gl.glTranslated(0, 0 ,0);
             Gl.glColor3d(0, 0.8f, 0.5f);
             Glut.glutWireCube(3);
 

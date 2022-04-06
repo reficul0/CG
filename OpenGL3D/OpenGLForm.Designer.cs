@@ -34,10 +34,15 @@ namespace OpenGL
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quadratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trapeciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.figuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.figuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.isFogEnabledCheckBox = new System.Windows.Forms.CheckBox();
+            this.isLightEnabledCheckBox = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.isFlatShadeEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mHolst
@@ -70,21 +75,28 @@ namespace OpenGL
             this.trapeciaToolStripMenuItem,
             this.figuresToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(120, 70);
             // 
             // quadratToolStripMenuItem
             // 
             this.quadratToolStripMenuItem.Name = "quadratToolStripMenuItem";
-            this.quadratToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quadratToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.quadratToolStripMenuItem.Text = "Quadrat";
             this.quadratToolStripMenuItem.Click += new System.EventHandler(this.quadratToolStripMenuItem_Click);
             // 
             // trapeciaToolStripMenuItem
             // 
             this.trapeciaToolStripMenuItem.Name = "trapeciaToolStripMenuItem";
-            this.trapeciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trapeciaToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.trapeciaToolStripMenuItem.Text = "Trapecia";
             this.trapeciaToolStripMenuItem.Click += new System.EventHandler(this.trapeciaToolStripMenuItem_Click);
+            // 
+            // figuresToolStripMenuItem
+            // 
+            this.figuresToolStripMenuItem.Name = "figuresToolStripMenuItem";
+            this.figuresToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.figuresToolStripMenuItem.Text = "2 figures";
+            this.figuresToolStripMenuItem.Click += new System.EventHandler(this.figuresToolStripMenuItem_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -99,22 +111,61 @@ namespace OpenGL
             this.timer.Interval = 50;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // figuresToolStripMenuItem
+            // isFogEnabledCheckBox
             // 
-            this.figuresToolStripMenuItem.Name = "figuresToolStripMenuItem";
-            this.figuresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.figuresToolStripMenuItem.Text = "2 figures";
-            this.figuresToolStripMenuItem.Click += new System.EventHandler(this.figuresToolStripMenuItem_Click);
+            this.isFogEnabledCheckBox.AutoSize = true;
+            this.isFogEnabledCheckBox.Location = new System.Drawing.Point(7, 13);
+            this.isFogEnabledCheckBox.Name = "isFogEnabledCheckBox";
+            this.isFogEnabledCheckBox.Size = new System.Drawing.Size(44, 17);
+            this.isFogEnabledCheckBox.TabIndex = 1;
+            this.isFogEnabledCheckBox.Text = "Fog";
+            this.isFogEnabledCheckBox.UseVisualStyleBackColor = true;
+            this.isFogEnabledCheckBox.CheckedChanged += new System.EventHandler(this.isFogEnabledCheckBox_CheckedChanged);
+            // 
+            // isLightEnabledCheckBox
+            // 
+            this.isLightEnabledCheckBox.AutoSize = true;
+            this.isLightEnabledCheckBox.Location = new System.Drawing.Point(7, 36);
+            this.isLightEnabledCheckBox.Name = "isLightEnabledCheckBox";
+            this.isLightEnabledCheckBox.Size = new System.Drawing.Size(49, 17);
+            this.isLightEnabledCheckBox.TabIndex = 2;
+            this.isLightEnabledCheckBox.Text = "Light";
+            this.isLightEnabledCheckBox.UseVisualStyleBackColor = true;
+            this.isLightEnabledCheckBox.CheckedChanged += new System.EventHandler(this.isLightEnabledCheckBox_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.isFlatShadeEnabledCheckBox);
+            this.panel1.Controls.Add(this.isFogEnabledCheckBox);
+            this.panel1.Controls.Add(this.isLightEnabledCheckBox);
+            this.panel1.Location = new System.Drawing.Point(957, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(84, 100);
+            this.panel1.TabIndex = 3;
+            // 
+            // isFlatShadeEnabledCheckBox
+            // 
+            this.isFlatShadeEnabledCheckBox.AutoSize = true;
+            this.isFlatShadeEnabledCheckBox.Location = new System.Drawing.Point(7, 60);
+            this.isFlatShadeEnabledCheckBox.Name = "isFlatShadeEnabledCheckBox";
+            this.isFlatShadeEnabledCheckBox.Size = new System.Drawing.Size(75, 17);
+            this.isFlatShadeEnabledCheckBox.TabIndex = 3;
+            this.isFlatShadeEnabledCheckBox.Text = "Flat shade";
+            this.isFlatShadeEnabledCheckBox.UseVisualStyleBackColor = true;
+            this.isFlatShadeEnabledCheckBox.CheckedChanged += new System.EventHandler(this.isFlatShadeEnabledCheckBox_CheckedChanged);
             // 
             // OpenGLForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 713);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.mHolst);
             this.Name = "OpenGLForm";
             this.Text = "OpenGLForm";
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -128,6 +179,10 @@ namespace OpenGL
         private System.Windows.Forms.ToolStripMenuItem quadratToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trapeciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem figuresToolStripMenuItem;
+        private System.Windows.Forms.CheckBox isFogEnabledCheckBox;
+        private System.Windows.Forms.CheckBox isLightEnabledCheckBox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox isFlatShadeEnabledCheckBox;
     }
 }
 
